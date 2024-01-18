@@ -11,6 +11,9 @@
     }
   ],
   "type": "oxideshop-module",
+  "config": {
+    "vendor-dir": "vendor"
+  },
   "extra":       {
     "oxideshop": {
         "target-directory": "shopgate"
