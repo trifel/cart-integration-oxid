@@ -21,8 +21,10 @@
  */
 
 if (!defined('SHOPGATE_PLUGIN_VERSION')) {
-    define("SHOPGATE_PLUGIN_VERSION", "3.0.1-alpha1");
+    define("SHOPGATE_PLUGIN_VERSION", "3.0.1-alpha2");
 }
+
+require_once dirname(__FILE__) . '/views/marm_shopgate_api.php';
 
 /**
  * Metadata version
