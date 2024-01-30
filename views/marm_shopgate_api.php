@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright Shopgate Inc.
  *
@@ -18,6 +19,8 @@
  * @copyright Shopgate Inc
  * @license   http://www.apache.org/licenses/LICENSE-2.0 Apache License, Version 2.0
  */
+
+include_once dirname(__FILE__) . "/../../../bootstrap.php";
 
 /**
  * Frontend controller for handling Shopgate integration requests
