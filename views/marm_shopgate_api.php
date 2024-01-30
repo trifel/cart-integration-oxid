@@ -20,7 +20,16 @@
  * @license   http://www.apache.org/licenses/LICENSE-2.0 Apache License, Version 2.0
  */
 
-include_once dirname(__FILE__) . "/../../../bootstrap.php";
+if (!function_exists('getShopBasePath')) {
+    function getShopBasePath()
+    {
+        return dirname(__FILE__) . '/../../../';
+    }
+}
+
+if (file_exists(getShopBasePath() . "bootstrap.php")) {
+    include_once getShopBasePath() . "bootstrap.php";
+}
 
 /**
  * Frontend controller for handling Shopgate integration requests
