@@ -20,16 +20,13 @@
  * @license   http://www.apache.org/licenses/LICENSE-2.0 Apache License, Version 2.0
  */
 
-if (!defined('SHOPGATE_PLUGIN_VERSION')) {
-    define("SHOPGATE_PLUGIN_VERSION", "3.0.1-alpha2");
-}
-
-require_once dirname(__FILE__) . '/views/marm_shopgate_api.php';
+use Shopgate\Framework\Core\ModuleEvents;
+use Shopgate\Framework\Core\ModuleVersion;
 
 /**
  * Metadata version
  */
-$sMetadataVersion = '1.1';
+$sMetadataVersion = '2.1';
 
 /**
  * Module information
@@ -41,36 +38,49 @@ $aModule = array(
     'title'       => 'Shopgate',
     'description' => 'Mobile Shopping with Shopgate for OXID',
     'thumbnail'   => 'picture.jpg',
-    'version'     => SHOPGATE_PLUGIN_VERSION,
+    'version'     => ModuleVersion::getVersion(),
     'author'      => 'Shopgate GmbH',
     'email'       => 'technik@shopgate.com',
     'url'         => 'http://www.shopgate.com',
-    'extend'      => array(
-        'oxorder'          => 'shopgate/marm_shopgate_oxorder',
-        'oxoutput'         => 'shopgate/marm_shopgate_oxoutput',
-        'oxarticle'        => 'shopgate/marm_shopgate_oxarticle',
-        'order_overview'   => 'shopgate/shopgate_order_overview',
-        'order_main'       => 'shopgate/shopgate_order_overview',
-        'oxvarianthandler' => 'shopgate/shopgate_oxvarianthandler',
-        'oxvoucher'        => 'shopgate/shopgate_oxvoucher',
-        'oxbasket'         => 'shopgate/shopgate_oxbasket',
-        'oxdeliverylist'   => 'shopgate/shopgate_oxdeliverylist',
-        'oxsession'        => 'shopgate/shopgate_oxsession',
-    ),
-    'files'       => array(
-        'marm_shopgate'   => 'shopgate/core/marm_shopgate.php',
-        'oxOrderShopgate' => 'shopgate/core/oxordershopgate.php',
+    // 'controllers'  => [
+    //     'oxOrderShopgate' => 'shopgate/core/oxordershopgate.php',
 
-        'marm_shopgate_article' => 'shopgate/admin/marm_shopgate_article.php',
-        'marm_shopgate_config'  => 'shopgate/admin/marm_shopgate_config.php',
+    //     'marm_shopgate_article' => 'shopgate/admin/marm_shopgate_article.php',
+    //     'marm_shopgate_config'  => 'shopgate/admin/marm_shopgate_config.php',
 
-        'shopgate_order'    => 'shopgate/admin/shopgate_order.php',
-        'shopgate_shipping' => 'shopgate/admin/shopgate_shipping.php',
-        'shopgate_payment'  => 'shopgate/admin/shopgate_payment.php',
-        'shopgate_actions'  => 'shopgate/admin/shopgate_actions.php',
+    //     'shopgate_order'    => 'shopgate/admin/shopgate_order.php',
+    //     'shopgate_shipping' => 'shopgate/admin/shopgate_shipping.php',
+    //     'shopgate_payment'  => 'shopgate/admin/shopgate_payment.php',
+    //     'shopgate_actions'  => 'shopgate/admin/shopgate_actions.php',
 
-        'marm_shopgate_api' => 'shopgate/views/marm_shopgate_api.php',
-    ),
+    //     'marm_shopgate_api' => 'shopgate/views/marm_shopgate_api.php',
+    // ],
+    // 'extend'      => array(
+    //     'oxorder'          => 'shopgate/marm_shopgate_oxorder',
+    //     'oxoutput'         => 'shopgate/marm_shopgate_oxoutput',
+    //     'oxarticle'        => 'shopgate/marm_shopgate_oxarticle',
+    //     'order_overview'   => 'shopgate/shopgate_order_overview',
+    //     'order_main'       => 'shopgate/shopgate_order_overview',
+    //     'oxvarianthandler' => 'shopgate/shopgate_oxvarianthandler',
+    //     'oxvoucher'        => 'shopgate/shopgate_oxvoucher',
+    //     'oxbasket'         => 'shopgate/shopgate_oxbasket',
+    //     'oxdeliverylist'   => 'shopgate/shopgate_oxdeliverylist',
+    //     'oxsession'        => 'shopgate/shopgate_oxsession',
+    // ),
+    // 'files'       => array(
+    //     'marm_shopgate'   => 'shopgate/core/marm_shopgate.php',
+    //     'oxOrderShopgate' => 'shopgate/core/oxordershopgate.php',
+
+    //     'marm_shopgate_article' => 'shopgate/admin/marm_shopgate_article.php',
+    //     'marm_shopgate_config'  => 'shopgate/admin/marm_shopgate_config.php',
+
+    //     'shopgate_order'    => 'shopgate/admin/shopgate_order.php',
+    //     'shopgate_shipping' => 'shopgate/admin/shopgate_shipping.php',
+    //     'shopgate_payment'  => 'shopgate/admin/shopgate_payment.php',
+    //     'shopgate_actions'  => 'shopgate/admin/shopgate_actions.php',
+
+    //     'marm_shopgate_api' => 'shopgate/views/marm_shopgate_api.php',
+    // ),
     'templates'   => array(
         'marm_shopgate_article.tpl' => 'shopgate/out/admin/tpl/marm_shopgate_article.tpl',
         'marm_shopgate_config.tpl'  => 'shopgate/out/admin/tpl/marm_shopgate_config.tpl',
@@ -79,8 +89,8 @@ $aModule = array(
         'shopgate_payment.tpl'      => 'shopgate/out/admin/tpl/shopgate_payment.tpl',
         'shopgate_actions.tpl'      => 'shopgate/out/admin/tpl/shopgate_actions.tpl',
     ),
-    'events'      => array(
-        'onActivate'   => 'marm_shopgate::onActivate',
-        'onDeactivate' => 'marm_shopgate::onDeactivate',
-    ),
+    'events'      => [
+        'onActivate' => ModuleEvents::class . '::onActivate',
+        'onDeactivate' => ModuleEvents::class . '::onDeactivate'
+    ],
 );

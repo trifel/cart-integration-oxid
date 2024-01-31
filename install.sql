@@ -2,8 +2,8 @@
 -- Please DON'T use multiline comments in here.
 -- Also, make sure that this file contains no semicolons other than the statement delimiters.
 
-ALTER TABLE `oxarticles` ADD COLUMN `marm_shopgate_marketplace` TINYINT UNSIGNED NOT NULL DEFAULT '1';
-ALTER TABLE `oxarticles` ADD COLUMN `marm_shopgate_export` TINYINT UNSIGNED NOT NULL DEFAULT '1';
+ALTER TABLE `oxarticles` ADD COLUMN `shopgate_marketplace` TINYINT UNSIGNED NOT NULL DEFAULT '1';
+ALTER TABLE `oxarticles` ADD COLUMN `shopgate_export` TINYINT UNSIGNED NOT NULL DEFAULT '1';
 
 ALTER TABLE `oxpayments` ADD COLUMN `shopgate_payment_method` VARCHAR( 100 ) NULL;
 INSERT IGNORE INTO `oxpayments` (`OXID`, `OXACTIVE`, `OXDESC`, `OXTOAMOUNT`, `OXVALDESC`, `OXVALDESC_1`, `OXVALDESC_2`, `OXVALDESC_3`, `OXLONGDESC`, `OXLONGDESC_1`, `OXLONGDESC_2`, `OXLONGDESC_3`) VALUES

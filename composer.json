@@ -16,7 +16,7 @@
   },
   "extra":       {
     "oxideshop": {
-        "target-directory": "shopgate"
+        "target-directory": "shopgate/cart-integration-oxid"
     }
   },
   "require": {
@@ -28,8 +28,12 @@
   },
   "autoload": {
     "psr-4": {
-      "unit\\": "tests/unit/",
-      "tests\\" : "tests/"
+      "Shopgate\\Framework\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+        "Shopgate\\Framework\\": "tests"
     }
   },
   "repositories": {
