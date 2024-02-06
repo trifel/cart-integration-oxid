@@ -34,7 +34,7 @@ if (file_exists(getShopBasePath() . "bootstrap.php")) {
 /**
  * Frontend controller for handling Shopgate integration requests
  */
-class marm_shopgate_api extends oxUBase
+class marm_shopgate_api extends \OxidEsales\Eshop\Application\Controller\FrontendController
 {
     /**
      * For performance.
