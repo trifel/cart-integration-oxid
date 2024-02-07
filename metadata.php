@@ -21,7 +21,7 @@
  */
 
 if (!defined('SHOPGATE_PLUGIN_VERSION')) {
-    define("SHOPGATE_PLUGIN_VERSION", "3.0.1-alpha3");
+    define("SHOPGATE_PLUGIN_VERSION", "3.0.1-alpha4");
 }
 
 /**
